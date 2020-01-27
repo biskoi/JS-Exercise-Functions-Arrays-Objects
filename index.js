@@ -198,12 +198,15 @@ function getCarInfoById(inventory, id) {
 */
 function sortCarInventory(inventory) {
 
-inventory.sort(function(a, b){
-    var modelA = a.car_model.toLowerCase(), modelB = b.car_model.toLowerCase()
-    if (modelA < modelB)
-      return -1
-    if (modelA > modelB)
-      return 1
+return inventory.sort(function(a, b){
+    var modelA = a.car_model.toLowerCase(), modelB = b.car_model.toLowerCase();
+    if (modelA < modelB){
+      return -1;}
+    else if (modelA > modelB){
+      return 1;}
+    else {
+      return 0;}
+    
 })
 
 }
@@ -218,8 +221,13 @@ inventory.sort(function(a, b){
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  const yearsArray = [];
+  for (let i = 0; i < inventory.length; i++) {
+    yearsArray.push(inventory[i].car_year)
+  }
+return yearsArray;
+
 }
 
 /**
@@ -234,8 +242,14 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory, year) {
+  var olderArray = [];
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_year <= year) {
+      olderArray.push(inventory[i]);
+    }
+  }
+  return olderArray;
 }
 
 /**
@@ -249,8 +263,27 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  var germanArray = [];
+  for (let i = 0; i < inventory.length; i++){
+    if (inventory[i].car_make === 'Audi') {
+      germanArray.push(inventory[i]);
+    }
+
+    else if (inventory[i].car_make === 'Mercedes-Benz') {
+      germanArray.push(inventory[i]);
+    }
+
+    else if (inventory[i].car_make === 'Volkswagen') {
+      germanArray.push(inventory[i]);
+    }
+
+    else if (inventory[i].car_make === 'BMW') {
+      germanArray.push(inventory[i]);
+    }
+    
+  }
+  return germanArray;
 }
 
 /**
