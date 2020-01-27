@@ -281,7 +281,7 @@ function getGermanCars(inventory) {
     else if (inventory[i].car_make === 'BMW') {
       germanArray.push(inventory[i]);
     }
-    
+
   }
   return germanArray;
 }
@@ -304,9 +304,9 @@ function getGermanCars(inventory) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a, b) => a + b; // code here!
+const addFive = (a) => a + 5; // code here!
+const argTimesTwo = (a) => a * 2; // code here!
 
 /**
  * ### Challenge `carMaker`
